@@ -1,5 +1,6 @@
 package LeonardoMonterrosa.SamuelSanchez.myapplication.ui.dashboard
 
+import LeonardoMonterrosa.SamuelSanchez.myapplication.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import LeonardoMonterrosa.SamuelSanchez.myapplication.databinding.FragmentDashboardBinding
+import android.widget.EditText
 
 class DashboardFragment : Fragment() {
 
@@ -28,15 +30,39 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
+
+
+
+        val Nombres = root.findViewById<EditText>(R.id.txtNombrePaciente )
+        val Apellidos = root.findViewById<EditText>(R.id.txtApellidos )
+        val Edad = root.findViewById<EditText>(R.id.txtEdadPaciente )
+        val Enfermedad = root.findViewById<EditText>(R.id.txtEnfermedadPaciente )
+        val NumHabitacion = root.findViewById<EditText>(R.id.txtNumHabitacion )
+        val NumCama = root.findViewById<EditText>(R.id.txtNumCama )
+        val MedicamentoAsigando = root.findViewById<EditText>(R.id.txtMedicamentos )
+        val FechaNacimiento = root.findViewById<EditText>(R.id.txtFechaNacimiento )
+        val HoraDeMedicamento = root.findViewById<EditText>(R.id.txtHoraDeMedicamentos )
+
+
+
+
+        val textView: TextView = binding.textView
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
     }
 
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+
+
+
+
+
 }
