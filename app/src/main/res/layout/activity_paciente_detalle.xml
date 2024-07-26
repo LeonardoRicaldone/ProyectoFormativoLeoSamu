@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/txtNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text="Nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtApellido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Apellido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtNombre"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtEdad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Edad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtApellido"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtEnfermedad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Enfermedad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEdad"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtNumeroHabitacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Número de Habitación"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEnfermedad"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtNumeroCama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Número de Cama"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtNumeroHabitacion"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtMedicamentosAsignados"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Medicamentos Asignados"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtNumeroCama"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtFechaNacimiento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Fecha de Nacimiento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMedicamentosAsignados"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtHoraAplicacionMedicamento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Hora de Aplicación del Medicamento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtFechaNacimiento"
+        android:layout_marginTop="8dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

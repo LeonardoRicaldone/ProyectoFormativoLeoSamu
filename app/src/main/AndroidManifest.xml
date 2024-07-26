@@ -15,6 +15,9 @@
         android:theme="@style/Theme.ProyectoFormativoSamuLeo"
         tools:targetApi="31">
         <activity
+            android:name=".PacienteDetalleActivity"
+            android:exported="false" />
+        <activity
             android:name=".item_paciente"
             android:exported="false" />
         <activity
