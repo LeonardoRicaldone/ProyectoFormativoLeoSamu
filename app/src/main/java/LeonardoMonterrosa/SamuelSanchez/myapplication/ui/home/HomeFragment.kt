@@ -75,6 +75,7 @@ class HomeFragment : Fragment() {
             return listaPacientes
         }
 
+
         CoroutineScope(Dispatchers.IO).launch {
             val pacientesDB = obtenerPacientes()
             withContext(Dispatchers.Main) {

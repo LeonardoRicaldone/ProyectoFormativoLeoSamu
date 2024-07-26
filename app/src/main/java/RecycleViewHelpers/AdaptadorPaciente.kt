@@ -15,6 +15,8 @@ class AdaptadorPaciente(
         return ViewHolderPaciente(vista)
     }
 
+
+
     override fun getItemCount() = Datos.size
 
     override fun onBindViewHolder(holder: ViewHolderPaciente, position: Int) {
@@ -34,4 +36,11 @@ class AdaptadorPaciente(
             notifyItemRemoved(position)
         }
     }
+
+    // Método para actualizar los datos
+    fun updateData(nuevosDatos: List<tbPacientes>) {
+        Datos = nuevosDatos
+        notifyDataSetChanged() // Notifica al RecyclerView que los datos han cambiado
+    }
+
 }

@@ -18,7 +18,7 @@ class ClaseConexion {
             val contrasenaLeonardo = "desarrollo"
 
 
-            val connection = DriverManager.getConnection(ipLeo, usuarioLeonardo, contrasenaLeonardo)
+            val connection = DriverManager.getConnection(ipSamu, usuarioSamuel, contrasenaSamuel)
             return connection
         }catch (e: Exception) {
             println("error: $e")
