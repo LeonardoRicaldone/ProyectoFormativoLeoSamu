@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background">#FFFFFF</color> <!-- Fondo blanco o el color que prefieras -->
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#555555</color>
+    <color name="delete_icon_tint">#FF0000</color> <!-- Cambia este color según tus necesidades -->
+    <color name="button_background">#3F51B5</color> <!-- Puedes cambiar este color a tu preferencia -->
 </resources>

@@ -5,15 +5,15 @@ import android.os.Parcelable
 
 data class tbPacientes(
     val id: Int,
-    val nombre: String,
-    val apellido: String,
-    val edad: Int,
-    val enfermedad: String,
-    val numero_habitacion: Int,
-    val numero_cama: Int,
-    val medicamentos_asignados: String,
-    val fecha_nacimiento: String,
-    val hora_aplicacion_medicamento: String
+    var nombre: String,
+    var apellido: String,
+    var edad: Int,
+    var enfermedad: String,
+    var numero_habitacion: Int,
+    var numero_cama: Int,
+    var medicamentos_asignados: String,
+    var fecha_nacimiento: String,
+    var hora_aplicacion_medicamento: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),

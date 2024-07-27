@@ -11,7 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@drawable/linear_layout_background"
+        android:layout_margin="8dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -27,7 +29,8 @@
                 android:text="Nombre del Paciente"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/black" />
+                android:textColor="@color/text_primary"
+                android:paddingBottom="4dp" />
 
             <!-- Edad del paciente -->
             <TextView
@@ -36,8 +39,9 @@
                 android:layout_height="wrap_content"
                 android:text="Edad: 00"
                 android:textSize="16sp"
-                android:textColor="@android:color/darker_gray"
-                android:layout_marginTop="4dp" />
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="4dp"
+                android:paddingBottom="4dp" />
 
             <!-- Enfermedad del paciente -->
             <TextView
@@ -46,9 +50,9 @@
                 android:layout_height="wrap_content"
                 android:text="Enfermedad"
                 android:textSize="16sp"
-                android:textColor="@android:color/darker_gray"
-                android:layout_marginTop="4dp" />
-
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="4dp"
+                android:paddingBottom="4dp" />
         </LinearLayout>
 
         <!-- ImageView a la derecha -->
@@ -57,8 +61,11 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/baseline_delete_24"/>
-
+            android:src="@drawable/baseline_delete_24"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/delete_icon_tint"
+            android:padding="8dp" />
     </LinearLayout>
+
 
 </androidx.cardview.widget.CardView>
