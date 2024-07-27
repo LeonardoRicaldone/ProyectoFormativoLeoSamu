@@ -38,10 +38,10 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val txtNombres = root.findViewById<EditText>(R.id.txtNombrePaciente)
+        val txtNombres = root.findViewById<EditText>(R.id.txtNombres)
         val txtApellidos = root.findViewById<EditText>(R.id.txtApellidos)
-        val txtEdad = root.findViewById<EditText>(R.id.txtEdadPaciente)
-        val txtEnfermedad = root.findViewById<EditText>(R.id.txtEnfermedadPaciente)
+        val txtEdad = root.findViewById<EditText>(R.id.txtEdad)
+        val txtEnfermedad = root.findViewById<EditText>(R.id.txtEnfermedad)
         val txtNumHabitacion = root.findViewById<EditText>(R.id.txtNumHabitacion)
         val txtNumCama = root.findViewById<EditText>(R.id.txtNumCama)
         val txtMedicamentoAsigando = root.findViewById<EditText>(R.id.txtMedicamentos)
@@ -49,67 +49,29 @@ class DashboardFragment : Fragment() {
         val txtHoraDeMedicamento = root.findViewById<EditText>(R.id.txtHoraDeMedicamentos)
         val btnGuardarPacientes = root.findViewById<Button>(R.id.btnAgregarPacientes)
 
-        val rcvPacientes = root.findViewById<RecyclerView>(R.id.rcvPacientes)
-        rcvPacientes.layoutManager = LinearLayoutManager(requireContext())
 
-        fun obtenerPacientes(): List<tbPacientes> {
-            val objConexio = ClaseConexion().cadenaConexion()
-            val statement = objConexio?.createStatement()
-            val resultSet = statement?.executeQuery("select * from tbPacientes")!!
 
-            val listaPacientes = mutableListOf<tbPacientes>()
 
-            while (resultSet.next()) {
 
-                val id = resultSet.getInt("id")
-                val nombre = resultSet.getString("nombre")
-                val apellido = resultSet.getString("apellido")
-                val edad = resultSet.getInt("edad")
-                val enfermedad = resultSet.getString("enfermedad")
-                val numero_habitacion = resultSet.getInt("numero_habitacion")
-                val numero_cama = resultSet.getInt("numero_cama")
-                val medicamentos_asignados = resultSet.getString("medicamentos_asignados")
-                val fecha_nacimiento = resultSet.getString("fecha_nacimiento")
-                val hora_aplicacion_medicamento = resultSet.getString("hora_aplicacion_medicamento")
 
-                val valoresJuntos = tbPacientes(id, nombre, apellido, edad, enfermedad, numero_habitacion, numero_cama, medicamentos_asignados, fecha_nacimiento, hora_aplicacion_medicamento)
-
-                listaPacientes.add(valoresJuntos)
-
-            }
-            return listaPacientes
-        }
-
-        CoroutineScope(Dispatchers.IO).launch {
-            val Pacientes = obtenerPacientes()
-            withContext(Dispatchers.Main){
-                val adapter = AdaptadorPaciente(Pacientes){ tbPacientes ->  }
-                rcvPacientes.adapter = adapter
-
-            }
-        }
 
         btnGuardarPacientes.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 val claseC = ClaseConexion().cadenaConexion()
-                val addPacientes = claseC?.prepareStatement(
-                    "insert into tbPacientes(nombre, apellido, edad, enfermedad, numero_habitacion, numero_cama, medicamento_asignados, fecha_nacimiento, hora_aplicacion_medicamentos) values(?,?,?,?,?,?,?,?,?)"
-                )!!
+                val addPacientes = claseC?.prepareStatement("insert into tbPacientes(nombre, apellido, edad, enfermedad, numero_habitacion, numero_cama, medicamentos_asignados, fecha_nacimiento, hora_aplicacion_medicamento) values(?,?,?,?,?,?,?,?,?)")!!
                 addPacientes.setString(1, txtNombres.text.toString())
                 addPacientes.setString(2, txtApellidos.text.toString())
-                addPacientes.setString(3, txtEdad.text.toString())
+                addPacientes.setInt(3, txtEdad.text.toString().toInt())
                 addPacientes.setString(4, txtEnfermedad.text.toString())
-                addPacientes.setString(5, txtNumHabitacion.text.toString())
-                addPacientes.setString(6, txtNumCama.text.toString())
+                addPacientes.setInt(5, txtNumHabitacion.text.toString().toInt())
+                addPacientes.setInt(6, txtNumCama.text.toString().toInt())
                 addPacientes.setString(7, txtMedicamentoAsigando.text.toString())
                 addPacientes.setString(8, txtFechaNacimiento.text.toString())
                 addPacientes.setString(9, txtHoraDeMedicamento.text.toString())
                 addPacientes.executeUpdate()
 
-                val nuevosPacientes = obtenerPacientes()
-                withContext(Dispatchers.Main) {
-                    (rcvPacientes.adapter as? AdaptadorPaciente)?.updateData(nuevosPacientes)
-                }
+
+
             }
         }
 

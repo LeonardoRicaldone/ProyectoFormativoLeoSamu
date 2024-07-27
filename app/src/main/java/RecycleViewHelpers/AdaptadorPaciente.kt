@@ -10,6 +10,12 @@ class AdaptadorPaciente(
     var Datos: List<tbPacientes>,
     private val onItemClicked: (tbPacientes) -> Unit
 ) : RecyclerView.Adapter<ViewHolderPaciente>() {
+    // Método para actualizar los datos
+    fun updateData(nuevosDatos: List<tbPacientes>) {
+        Datos = nuevosDatos
+        notifyDataSetChanged() // Notifica al RecyclerView que los datos han cambiado
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPaciente {
         val vista = LayoutInflater.from(parent.context).inflate(R.layout.item_paciente, parent, false)
         return ViewHolderPaciente(vista)
@@ -37,10 +43,6 @@ class AdaptadorPaciente(
         }
     }
 
-    // Método para actualizar los datos
-    fun updateData(nuevosDatos: List<tbPacientes>) {
-        Datos = nuevosDatos
-        notifyDataSetChanged() // Notifica al RecyclerView que los datos han cambiado
-    }
+
 
 }
